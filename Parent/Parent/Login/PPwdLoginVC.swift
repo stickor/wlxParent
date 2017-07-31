@@ -7,31 +7,39 @@
 //
 
 import UIKit
+import JHB_HUDView
+import Alamofire
+
 
 class PPwdLoginVC: PViewController {
     @IBOutlet var phoneNum: UITextField!
     @IBOutlet var pwdText: UITextField!
+    @IBOutlet var loginBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func onClickLoginBtn(_ sender: UIButton) {
+        if (phoneNum.text?.length)!<1 {
+            JHB_HUDView.showMsg("手机号不能为空")
+            return;
+        }
+        if (pwdText.text?.length)!<1 {
+            JHB_HUDView.showMsg("密码不能为空")
+            return;
+        }
+        let param = [
+            "type": "",
+            "key" : ""
+        ]
+        Alamofire.request("12345678", method: .post, parameters: param).responseJSON { (returnResult) in
+            print("secondMethod --> 参数 --> returnResult = \(returnResult)")
+        }
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

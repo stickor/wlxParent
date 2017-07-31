@@ -7,12 +7,12 @@ PODS:
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.0.1)
+  - Alamofire
   - BFKit-Swift
-  - JHB_HUDView (~> 0.1.8)
-  - Kingfisher (~> 3.1.4)
-  - MJRefresh (~> 3.1.12)
-  - SnapKit (~> 3.0.2)
+  - JHB_HUDView
+  - Kingfisher
+  - MJRefresh
+  - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
@@ -22,6 +22,6 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: db9130262ec00493c256896762a1b8020d55b80d
+PODFILE CHECKSUM: bc66d401c5fcead74c7986771b3de7b34bda79bf
 
 COCOAPODS: 1.2.1

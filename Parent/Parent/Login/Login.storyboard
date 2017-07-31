@@ -41,6 +41,9 @@
                                 <state key="normal" title="登录">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onClickLoginBtn:" destination="6Ey-X7-dFS" eventType="touchUpInside" id="jAW-Bw-O1e"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="45o-UK-5UX">
                                 <rect key="frame" x="26" y="298" width="323" height="30"/>
@@ -70,6 +73,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginBtn" destination="QJJ-uM-u7P" id="Dzu-hO-ZGL"/>
                         <outlet property="phoneNum" destination="45o-UK-5UX" id="cNX-xT-8gX"/>
                         <outlet property="pwdText" destination="sVJ-HU-66B" id="KdS-gj-DDU"/>
                     </connections>
