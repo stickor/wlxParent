@@ -70,6 +70,9 @@ class PPwdLoginVC: PViewController {
             }
             //是否请求成功
             if response.result.isSuccess{
+                
+                self.view.window?.rootViewController = PTabBarVC()
+                
 
             }
             if let jsonValue = response.result.value {

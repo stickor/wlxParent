@@ -16,6 +16,12 @@
 		EEB02EFE1F28A52C003F2F4B /* PViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02EFD1F28A52C003F2F4B /* PViewController.swift */; };
 		EEB02F001F28A5A0003F2F4B /* PPwdLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02EFF1F28A5A0003F2F4B /* PPwdLoginVC.swift */; };
 		EEB02F021F28A5C6003F2F4B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEB02F011F28A5C6003F2F4B /* Login.storyboard */; };
+		EEB02F0A1F309662003F2F4B /* PTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02F091F309662003F2F4B /* PTabBarVC.swift */; };
+		EEB02F0C1F3096D8003F2F4B /* PCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02F0B1F3096D8003F2F4B /* PCourseVC.swift */; };
+		EEB02F0E1F3096EC003F2F4B /* PGradeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02F0D1F3096EC003F2F4B /* PGradeVC.swift */; };
+		EEB02F101F309701003F2F4B /* PMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02F0F1F309701003F2F4B /* PMeVC.swift */; };
+		EEB02F121F309714003F2F4B /* PMessageCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02F111F309714003F2F4B /* PMessageCenterVC.swift */; };
+		EEB02F141F30A5BC003F2F4B /* PNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02F131F30A5BC003F2F4B /* PNavController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +39,12 @@
 		EEB02EFF1F28A5A0003F2F4B /* PPwdLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPwdLoginVC.swift; sourceTree = "<group>"; };
 		EEB02F011F28A5C6003F2F4B /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EEB02F081F308F9E003F2F4B /* WLXParentHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLXParentHeader.h; sourceTree = "<group>"; };
+		EEB02F091F309662003F2F4B /* PTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PTabBarVC.swift; sourceTree = "<group>"; };
+		EEB02F0B1F3096D8003F2F4B /* PCourseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCourseVC.swift; sourceTree = "<group>"; };
+		EEB02F0D1F3096EC003F2F4B /* PGradeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGradeVC.swift; sourceTree = "<group>"; };
+		EEB02F0F1F309701003F2F4B /* PMeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMeVC.swift; sourceTree = "<group>"; };
+		EEB02F111F309714003F2F4B /* PMessageCenterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMessageCenterVC.swift; sourceTree = "<group>"; };
+		EEB02F131F30A5BC003F2F4B /* PNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNavController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +106,8 @@
 				EEB02EFA1F28A4BF003F2F4B /* MessageCenter */,
 				EEB02EE41F28A399003F2F4B /* AppDelegate.swift */,
 				EEB02EE61F28A399003F2F4B /* ViewController.swift */,
+				EEB02F091F309662003F2F4B /* PTabBarVC.swift */,
+				EEB02F131F30A5BC003F2F4B /* PNavController.swift */,
 				EEB02EE81F28A399003F2F4B /* Main.storyboard */,
 				EEB02EEB1F28A399003F2F4B /* Assets.xcassets */,
 				EEB02EED1F28A399003F2F4B /* LaunchScreen.storyboard */,
@@ -105,6 +119,7 @@
 		EEB02EF61F28A4BF003F2F4B /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				EEB02F0B1F3096D8003F2F4B /* PCourseVC.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -112,6 +127,7 @@
 		EEB02EF71F28A4BF003F2F4B /* Grade */ = {
 			isa = PBXGroup;
 			children = (
+				EEB02F0D1F3096EC003F2F4B /* PGradeVC.swift */,
 			);
 			path = Grade;
 			sourceTree = "<group>";
@@ -128,6 +144,7 @@
 		EEB02EF91F28A4BF003F2F4B /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				EEB02F0F1F309701003F2F4B /* PMeVC.swift */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -135,6 +152,7 @@
 		EEB02EFA1F28A4BF003F2F4B /* MessageCenter */ = {
 			isa = PBXGroup;
 			children = (
+				EEB02F111F309714003F2F4B /* PMessageCenterVC.swift */,
 			);
 			path = MessageCenter;
 			sourceTree = "<group>";
@@ -281,9 +299,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB02F0E1F3096EC003F2F4B /* PGradeVC.swift in Sources */,
+				EEB02F101F309701003F2F4B /* PMeVC.swift in Sources */,
+				EEB02F0C1F3096D8003F2F4B /* PCourseVC.swift in Sources */,
+				EEB02F0A1F309662003F2F4B /* PTabBarVC.swift in Sources */,
+				EEB02F141F30A5BC003F2F4B /* PNavController.swift in Sources */,
 				EEB02EE71F28A399003F2F4B /* ViewController.swift in Sources */,
 				EEB02F001F28A5A0003F2F4B /* PPwdLoginVC.swift in Sources */,
 				EEB02EFE1F28A52C003F2F4B /* PViewController.swift in Sources */,
+				EEB02F121F309714003F2F4B /* PMessageCenterVC.swift in Sources */,
 				EEB02EE51F28A399003F2F4B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
