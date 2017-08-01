@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.0.1)
   - BFKit-Swift (2.4.1)
+  - FSCalendar (2.7.8)
   - JHB_HUDView (0.1.8)
   - Kingfisher (3.1.4)
   - MJRefresh (3.1.12)
@@ -9,6 +10,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - BFKit-Swift
+  - FSCalendar
   - JHB_HUDView
   - Kingfisher
   - MJRefresh
@@ -17,11 +19,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   BFKit-Swift: 7899c3c6ed641e202a5945185826aa4b6ff01099
+  FSCalendar: 09369a2bf554ba71cd8e8cfb627e2df22a2c2af4
   JHB_HUDView: 5b95d9af443ff405bd95bc28731d2ab168d9f840
   Kingfisher: 6c67e3e57f2d81a9cfdfa25052cd86f33ceac9bb
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: bc66d401c5fcead74c7986771b3de7b34bda79bf
+PODFILE CHECKSUM: 291030e6a13a2622e0f17e7800eccef972231f62
 
 COCOAPODS: 1.2.1

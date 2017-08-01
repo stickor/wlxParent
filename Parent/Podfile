@@ -12,5 +12,5 @@ pod 'JHB_HUDView'
 pod 'Kingfisher'
 pod 'SnapKit'
 pod 'BFKit-Swift'
-
+pod 'FSCalendar'
 end
