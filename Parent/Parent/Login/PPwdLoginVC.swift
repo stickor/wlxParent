@@ -18,10 +18,12 @@ class PPwdLoginVC: PViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+        
+        }
     @IBAction func onClickLoginBtn(_ sender: UIButton) {
+        
+        self.view.window?.rootViewController = PTabBarVC()
+/*
         if (phoneNum.text?.length)!<1 {
             JHB_HUDView.showMsg("手机号不能为空")
             
@@ -37,7 +39,7 @@ class PPwdLoginVC: PViewController {
             "loginType":"pwd"
         ]
         
-        let url = URL(string: "http://192.168.10.4:8101/login")!
+        let url = URL(string: "http://58.49.120.22:28101/login")!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         
@@ -82,7 +84,7 @@ class PPwdLoginVC: PViewController {
 
         
         
-        
+        */
         
         
         

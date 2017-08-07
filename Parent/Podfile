@@ -13,4 +13,5 @@ pod 'Kingfisher'
 pod 'SnapKit'
 pod 'BFKit-Swift'
 pod 'FSCalendar'
+pod 'SwiftyJSON'
 end
