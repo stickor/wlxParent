@@ -15,7 +15,7 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
 
     var tableView = UITableView ()
     var messageCell = "messageCell"
-    var messageData = JSON.init(AnyClass.self)
+    var messageData = NSDictionary()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,8 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
         tableView.frame = CGRect(x:0,y:0,width:self.view.frame.size.width,height:self.view.frame.size.height)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 100;
+        tableView.rowHeight = UITableViewAutomaticDimension
         self.view.addSubview(tableView)
         
         let header = MJRefreshNormalHeader()
@@ -45,18 +47,42 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
     
     func getData() {
         
-        let request:PRequestManager = PRequestManager()
-        let dic = ["pageStart":"1","pageSize":"20"]
-        let data =  request.request(type: "GET", urlString: "/client/family/messages", parameters: dic as NSDictionary)
-        messageData = data
+        let request:RequestManager = RequestManager()
+        let dic = ["pageStart":"0","pageSize":"20"]
+        let urlRequest =  request.request(type: "GET", urlString: "/client/family/messages", parameters: dic as NSDictionary)
         
-        if messageData["code"].intValue == 0 {
-            self.tableView.reloadData()
+        Alamofire.request(urlRequest).responseJSON { response in
+            
+            if response.result.isSuccess{
+                let json = JSON(data: response.data!)
+                print("请求返回的code==:\(json["code"])")
+                if json["code"].intValue == 0 {
+                    let dic = json["data"].rawValue
+                    self.messageData = dic as! NSDictionary
+                    self.tableView.reloadData()
+                }
+                
+            }
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)")
+            }
+//            if let jsonValue = response.result.value {
+//                print(jsonValue)
+//            }
+            
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        
+        let existence = self.messageData["content"]
+        if ((existence) != nil) {
+            let arr = self.messageData["content"] as!NSArray
+            return arr.count
+        }else{
+            return 0
+        }
+       
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,15 +93,19 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
             cell = PMessageCenterCell.init(style:UITableViewCellStyle.default, reuseIdentifier:messageCell)
             
         }
-        let dic = ["title":"11111","content":"222222222222","time":"2017-01-01"]
-            cell.updateWithData(data: dic as NSDictionary)
+        let arr = self.messageData["content"] as!NSArray
+        let dic = arr[indexPath.row]
+        cell.updateWithData(data: dic as! NSDictionary)
 
-        
+        cell.blo = { str in
+            print("test block---\(str)")
+
+        }
         return cell;
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100;
     }
     
 }
