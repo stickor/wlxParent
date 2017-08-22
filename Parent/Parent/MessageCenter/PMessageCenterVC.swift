@@ -97,10 +97,16 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
         let dic = arr[indexPath.row]
         cell.updateWithData(data: dic as! NSDictionary)
 
-        cell.blo = { str in
+        cell.cellBlock = { str in
             print("test block---\(str)")
 
         }
+        cell.cell1Block = {
+            (str) ->String in
+            print("test block---\(str)")
+            return str
+        }
+        
         return cell;
     }
     

@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 typealias ActionBlock = (String)->()
+typealias Action1Block = (String)->String
 
 class PMessageCenterCell: UITableViewCell {
     
@@ -16,9 +17,8 @@ class PMessageCenterCell: UITableViewCell {
     fileprivate lazy var timeLabel = UILabel()
     open lazy var content = UILabel()
     open lazy var actionBtn = UIButton()
-    var blo: ActionBlock?
-    
-
+    var cellBlock: ActionBlock?
+    var cell1Block: Action1Block?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -99,7 +99,10 @@ class PMessageCenterCell: UITableViewCell {
     }
     
     func clickbtn() {
-        self.blo?("1111111")
+        self.cellBlock?("1111111")
+        let result = self.cell1Block!("222")
+        print("result = \(result)")
+        
     }
     
    
