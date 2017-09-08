@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8D868AD7979E63C76D5A8395 /* Pods_Parent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D29E09C1D653738D2E84A9 /* Pods_Parent.framework */; };
+		EE2B11691F5D5147008CFD4C /* PShowImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2B11681F5D5147008CFD4C /* PShowImageCell.swift */; };
 		EE3E444B1F39D5B0008E363D /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3E444A1F39D5B0008E363D /* RequestManager.swift */; };
 		EE9F02C11F31E80400DB8FFA /* PMessageCenterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F02C01F31E80400DB8FFA /* PMessageCenterCell.swift */; };
 		EEB02EE51F28A399003F2F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02EE41F28A399003F2F4B /* AppDelegate.swift */; };
@@ -24,12 +25,16 @@
 		EEB02F101F309701003F2F4B /* PMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02F0F1F309701003F2F4B /* PMeVC.swift */; };
 		EEB02F121F309714003F2F4B /* PMessageCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02F111F309714003F2F4B /* PMessageCenterVC.swift */; };
 		EEB02F141F30A5BC003F2F4B /* PNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02F131F30A5BC003F2F4B /* PNavController.swift */; };
+		EEB595A61F580267007CF579 /* PBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB595A51F580267007CF579 /* PBaseModel.swift */; };
+		EEB595A81F5802C3007CF579 /* PMessageCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB595A71F5802C3007CF579 /* PMessageCenterModel.swift */; };
+		EED6EB331F5960EC0065B94B /* PMessageMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED6EB321F5960EC0065B94B /* PMessageMapModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		12D03D07FE4A0F3BB3371E71 /* Pods-Parent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parent.release.xcconfig"; path = "Pods/Target Support Files/Pods-Parent/Pods-Parent.release.xcconfig"; sourceTree = "<group>"; };
 		66D29E09C1D653738D2E84A9 /* Pods_Parent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBCD09EEE29DA0E10D15A5E /* Pods-Parent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parent.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Parent/Pods-Parent.debug.xcconfig"; sourceTree = "<group>"; };
+		EE2B11681F5D5147008CFD4C /* PShowImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PShowImageCell.swift; sourceTree = "<group>"; };
 		EE3E444A1F39D5B0008E363D /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		EE9F02C01F31E80400DB8FFA /* PMessageCenterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMessageCenterCell.swift; sourceTree = "<group>"; };
 		EEB02EE11F28A399003F2F4B /* Parent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +54,9 @@
 		EEB02F0F1F309701003F2F4B /* PMeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMeVC.swift; sourceTree = "<group>"; };
 		EEB02F111F309714003F2F4B /* PMessageCenterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMessageCenterVC.swift; sourceTree = "<group>"; };
 		EEB02F131F30A5BC003F2F4B /* PNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNavController.swift; sourceTree = "<group>"; };
+		EEB595A51F580267007CF579 /* PBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBaseModel.swift; sourceTree = "<group>"; };
+		EEB595A71F5802C3007CF579 /* PMessageCenterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMessageCenterModel.swift; sourceTree = "<group>"; };
+		EED6EB321F5960EC0065B94B /* PMessageMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMessageMapModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +166,9 @@
 			children = (
 				EEB02F111F309714003F2F4B /* PMessageCenterVC.swift */,
 				EE9F02C01F31E80400DB8FFA /* PMessageCenterCell.swift */,
+				EE2B11681F5D5147008CFD4C /* PShowImageCell.swift */,
+				EEB595A71F5802C3007CF579 /* PMessageCenterModel.swift */,
+				EED6EB321F5960EC0065B94B /* PMessageMapModel.swift */,
 			);
 			path = MessageCenter;
 			sourceTree = "<group>";
@@ -166,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				EEB02EFD1F28A52C003F2F4B /* PViewController.swift */,
+				EEB595A51F580267007CF579 /* PBaseModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -308,13 +320,17 @@
 				EEB02F0E1F3096EC003F2F4B /* PGradeVC.swift in Sources */,
 				EEB02F101F309701003F2F4B /* PMeVC.swift in Sources */,
 				EE3E444B1F39D5B0008E363D /* RequestManager.swift in Sources */,
+				EE2B11691F5D5147008CFD4C /* PShowImageCell.swift in Sources */,
+				EEB595A81F5802C3007CF579 /* PMessageCenterModel.swift in Sources */,
 				EEB02F0C1F3096D8003F2F4B /* PCourseVC.swift in Sources */,
+				EED6EB331F5960EC0065B94B /* PMessageMapModel.swift in Sources */,
 				EEB02F0A1F309662003F2F4B /* PTabBarVC.swift in Sources */,
 				EEB02F141F30A5BC003F2F4B /* PNavController.swift in Sources */,
 				EEB02EE71F28A399003F2F4B /* ViewController.swift in Sources */,
 				EEB02F001F28A5A0003F2F4B /* PPwdLoginVC.swift in Sources */,
 				EEB02EFE1F28A52C003F2F4B /* PViewController.swift in Sources */,
 				EEB02F121F309714003F2F4B /* PMessageCenterVC.swift in Sources */,
+				EEB595A61F580267007CF579 /* PBaseModel.swift in Sources */,
 				EE9F02C11F31E80400DB8FFA /* PMessageCenterCell.swift in Sources */,
 				EEB02EE51F28A399003F2F4B /* AppDelegate.swift in Sources */,
 			);

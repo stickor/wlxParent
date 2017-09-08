@@ -32,7 +32,7 @@ class RequestManager: NSObject {
         urlRequest.setValue("1.5.0", forHTTPHeaderField: "app_version")
         urlRequest.setValue("App Store", forHTTPHeaderField: "channel")
         urlRequest.setValue("20170101", forHTTPHeaderField: "build_version")
-        urlRequest.setValue("b3d9761b-10a2-4c85-a3d9-f59d7829c93e", forHTTPHeaderField: "token")
+        urlRequest.setValue("4235e7fe-ad8c-41cc-96d4-2f4014816c68", forHTTPHeaderField: "token")
         
         return urlRequest;
     }

@@ -14,4 +14,6 @@ pod 'SnapKit'
 pod 'BFKit-Swift'
 pod 'FSCalendar'
 pod 'SwiftyJSON'
+pod 'ObjectMapper'
+pod 'SDWebImage'
 end
