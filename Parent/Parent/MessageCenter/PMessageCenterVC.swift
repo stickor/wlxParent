@@ -67,16 +67,20 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
                     self.messageData = dic as! NSDictionary
                     self.tableView.reloadData()
                     
+                    //////
+                    let  messageModels = MessageDataModel(dicToModel:dic as! [String : Any])
                     
-                    let dataArray = json["data"]["content"].arrayValue
-                    
-                    for model in dataArray{
-                        let model4 = Mapper<PMessageMapModel>().map(JSON:model.rawValue as! [String : Any])
-                        self.messageDataArray.add(model4!)
-                    }
-                    
+                    self.messageDataArray.addObjects(from: messageModels.content_list)
                     print("1234567890")
-
+                    /////////////////
+                    
+//                    let dataArray = json["data"]["content"].arrayValue
+                    
+//                    for model in dataArray{
+//                        let model4 = Mapper<PMessageMapModel>().map(JSON:model.rawValue as! [String : Any])
+//                        self.messageDataArray.add(model4!)
+//                    }
+                    
 //                    var contentJson = json["data"]["content"].arrayValue[0]
 //                    
 //                    let modell = Mapper<PMessageMapModel>().map(JSON: contentJson.rawValue as! [String : Any])
@@ -113,29 +117,26 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        let existence = self.messageData["content"]
-        if ((existence) != nil) {
-            let arr = self.messageData["content"] as!NSArray
-            return arr.count
-        }else{
-            return 0
-        }
-       
+        return self.messageDataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         
         var cell:PMessageCenterCell = tableView.dequeueReusableCell(withIdentifier: messageCell, for: indexPath as IndexPath) as! PMessageCenterCell
 
         if !(cell.isEqual(nil)) {
             cell = PMessageCenterCell.init(style:UITableViewCellStyle.default, reuseIdentifier:messageCell)
-            
         }
-//        let arr = self.messageData["content"] as!NSArray
-//        let dic = arr[indexPath.row]
-        cell.updateWithData(data: self.messageDataArray[indexPath.row] as! PMessageMapModel)
 
+        cell.updateWithData(data: self.messageDataArray[indexPath.row] as! PMessageCenterModel)
+
+        cell.playVideoBlock = { str in
+            print("111111111"+str)
+        }
+        cell.showImageDetailBlock = { index,urls,imageViews in
+            print("2222222"+"\(index)"+"\(urls)"+"\(imageViews)")
+        }
         cell.cellBlock = { str in
             print("test block---\(str)")
 
@@ -153,8 +154,5 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
         return 100;
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        //
-    }
     
 }

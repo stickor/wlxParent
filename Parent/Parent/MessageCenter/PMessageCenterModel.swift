@@ -16,37 +16,45 @@ class PMessageCenterResModel: PBaseModel {
     
 }
 class MessageDataModel: PBaseModel {
-    
+    lazy var content_list : [PMessageCenterModel] = [PMessageCenterModel]()
+
     var isLast: Bool!
-    var content : NSMutableArray!
+    var content : [[String : Any]]? {
+        didSet {
+            guard let room_list2 = content else { return }
+            for dict in room_list2 {
+                content_list.append(PMessageCenterModel(dicToModel: dict))
+            }
+        }
+    }
     
 }
 
 class PMessageCenterModel: PBaseModel {
     ///消息ID
-    var messageId : NSInteger!;
+    var messageId : NSInteger = 0;
     ///消息类型
-    var type : NSString!;
+    var type : NSString = "";
     ///消息内容
-    var content : NSString!;
+    var content : NSString = "";
     ///消息创建时间
-    var creationDate : TimeInterval!;
+    var creationDate : TimeInterval = 0;
     ///班级ID
-    var gradeId : NSString!;
+    var gradeId : NSString = "";
     ///是否已读
-    var isRead : Int!;
+    var isRead : Int = 0;
     ///作业ID
-    var homeworkId : NSString!;
+    var homeworkId : NSString = "";
     ///头像
-    var avatarUrl : NSString!;
+    var avatarUrl : NSString = "";
     ///老师的名字
-    var teacherName : NSString!;
+    var teacherName : NSString = "";
     ///公告的ID
-    var noticId : NSString!;
+    var noticId : NSString = "";
     ///公告的内容
-    var noticContent : NSString!;
+    var noticContent : NSString = "";
     ///公告资源的类型
-    var noticRestype : NSString!;
+    var noticRestype : NSString = "";
     ///公告的图片或视频资源
     var noticUrls = [String]();
     ///公告的视频预览图

@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ImageViewer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JHB_HUDView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -30,6 +35,16 @@
 			<false/>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MobilePlayer-MobilePlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MobilePlayer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -62,17 +77,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04D8AF8C258F4E8E964F9DC64F28901F</key>
+		<key>136D7B9D8E7752E1E7F3030AC9D236CC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A0302F9EE3AEF324E42DA1C237DBC20</key>
+		<key>362E95B816068454C1FA5DD3CA791372</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3DEDA95BAD78E24DD37D9726E9B05827</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>627AF1B74BF3FD1834089EE872F4B018</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>83548DB259CDDAF1722C21C80CD1F343</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1EB548386C5BA9D937B01E8CF6957AF</key>
+		<key>8D91343344B8A0CAA066865722168064</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C05681D24160111C5400019CF3E363C5</key>
+		<key>AD666190D4145AC9FE643913F908B928</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6FABB0B9D827A7835B522201F1137CD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

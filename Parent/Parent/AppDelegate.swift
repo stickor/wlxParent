@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = LoginVC;
             
             
+        }else{
+            //Main
+            let LoginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController")
+            self.window?.rootViewController = LoginVC;
+
         }
         
         

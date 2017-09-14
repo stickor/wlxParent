@@ -16,4 +16,7 @@ pod 'FSCalendar'
 pod 'SwiftyJSON'
 pod 'ObjectMapper'
 pod 'SDWebImage'
+pod 'ImageViewer'
+pod 'MobilePlayer'
+
 end

@@ -11,6 +11,8 @@ import SnapKit
 import SDWebImage
 typealias ActionBlock = (String)->()
 typealias Action1Block = (String)->String
+typealias playVideoBlock = (String) ->()
+typealias showImageDetailBlock = (NSInteger,NSArray,NSArray) ->()
 
 class PMessageCenterCell: UITableViewCell ,UICollectionViewDelegate ,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
@@ -21,9 +23,13 @@ class PMessageCenterCell: UITableViewCell ,UICollectionViewDelegate ,UICollectio
     fileprivate lazy var collectionView = UICollectionView()
     open lazy var actionBtn = UIButton()
     fileprivate lazy var resouceDataArray = NSArray()
+    fileprivate lazy var noticeModel = PMessageCenterModel()
+    
     
     var cellBlock: ActionBlock?
     var cell1Block: Action1Block?
+    var playVideoBlock : playVideoBlock?
+    var showImageDetailBlock : showImageDetailBlock?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -62,12 +68,22 @@ class PMessageCenterCell: UITableViewCell ,UICollectionViewDelegate ,UICollectio
         
         
         
-        let layout = UICollectionViewFlowLayout.init()
-        layout.minimumLineSpacing = 3
-        layout.scrollDirection = UICollectionViewScrollDirection.vertical
+//        layout.minimumLineSpacing = 3
+//        layout.scrollDirection = UICollectionViewScrollDirection.vertical
 
-        self.collectionView.collectionViewLayout = layout
+        let layout = UICollectionViewFlowLayout()
+//        layout.itemSize = CGSize(width: 30, height: 30)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.headerReferenceSize = CGSize(width: 0, height: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        
+//        self.collectionView.collectionViewLayout = layout
+        self.collectionView = UICollectionView(frame: CGRect(x:0,y:0,width:0,height:0), collectionViewLayout: layout)
+        self.collectionView.backgroundColor = UIColor.color(string: "f0f0f0")
         self.collectionView.register(PShowImageCell.self, forCellWithReuseIdentifier: "cell")
+        self.collectionView.isScrollEnabled = false
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.contentView.addSubview(collectionView)
@@ -101,7 +117,13 @@ class PMessageCenterCell: UITableViewCell ,UICollectionViewDelegate ,UICollectio
             make.top.equalTo(logoImage.snp.bottom).offset(10)
             make.leading.equalTo(self.contentView).offset(10)
             make.trailing.equalTo(self.contentView).offset(-10)
+            make.bottom.equalTo(collectionView.snp.top)
+        }
+        collectionView.snp.remakeConstraints { (make) in
+            make.trailing.equalTo(content)
             make.bottom.equalTo(actionBtn.snp.top)
+            make.leading.equalTo(content)
+            make.height.equalTo(0)
         }
         actionBtn.snp.remakeConstraints { (make) in
             make.trailing.equalTo(self.contentView).offset(-10)
@@ -113,35 +135,58 @@ class PMessageCenterCell: UITableViewCell ,UICollectionViewDelegate ,UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.resouceDataArray.count
+        return self.noticeModel.noticUrls.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PShowImageCell
         
+        
+        if self.noticeModel.noticRestype.isEqual(to: "IMAGE") {
+            cell.update(imageUrl: self.noticeModel.noticUrls[indexPath.row] as NSString)
+            cell.videoImageView.isHidden = true
+        }else{
+            cell.update(imageUrl: self.noticeModel.noticPreUrl)
+        }
+        
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width:100,height:100)
+        let urlsCount =  self.noticeModel.noticUrls.count
+        var collectionCellHeight = CGFloat()
+        if urlsCount == 1 {
+            collectionCellHeight = (UIScreen.screenWidth-20)*2/3
+             return CGSize(width:UIScreen.screenWidth-20,height:collectionCellHeight)
+        }else{
+            if urlsCount>0 {
+                collectionCellHeight = (UIScreen.screenWidth-20)/3
+            }
+        }
+        return CGSize(width:collectionCellHeight,height:collectionCellHeight)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if self.noticeModel.noticRestype.isEqual(to: "IMAGE") {
+            let imageViews = NSMutableArray()
+            for index in 1...self.noticeModel.noticUrls.count {
+                let cell = collectionView.cellForItem(at: NSIndexPath.init(row: index, section: indexPath.section) as IndexPath)
+                imageViews.add(cell ?? PShowImageCell())
+            }
+            
+            if (self.showImageDetailBlock != nil) {
+                self.showImageDetailBlock!(indexPath.row,self.noticeModel.noticUrls as NSArray,imageViews)
+            }
+            
+        }else{
+            if (self.playVideoBlock != nil) {
+                self.playVideoBlock!(self.noticeModel.noticUrls[0])
+            }
+        }
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   open func updateWithData(data:PMessageMapModel) {
+   open func updateWithData(data:PMessageCenterModel) {
     
     
     let timeSta:TimeInterval = data.creationDate/1000
@@ -152,11 +197,10 @@ class PMessageCenterCell: UITableViewCell ,UICollectionViewDelegate ,UICollectio
     let time = dfmatter.string(from: date as Date)
     
     var avatarUrl = ""
-    if (data.avatarUrl != nil) {
-        avatarUrl = data.avatarUrl as String
-    }
+    avatarUrl = data.avatarUrl as String
+    
     var teacherName = "未来星艺术中心"
-    if (data.teacherName != nil) {
+    if (data.teacherName).boolValue {
         teacherName = data.teacherName as String
     }
     
@@ -209,6 +253,35 @@ class PMessageCenterCell: UITableViewCell ,UICollectionViewDelegate ,UICollectio
     else{//NOTICE_MSG 公告
         self.logoImage.sd_setImage(with: URL(string: avatarUrl ), placeholderImage: UIImage(named: "defaultteacher.png"))
         self.tilte.text = teacherName
+        self.noticeModel = data
+        self.collectionView.reloadData()
+        
+        
+        let urlsCount =  data.noticUrls.count
+        var collectionHeight = CGFloat()
+        var heightCount = CGFloat()
+        
+        if urlsCount == 1 {
+            collectionHeight = (UIScreen.screenWidth-20)*2/3
+        }else{
+            heightCount = CGFloat(urlsCount/3+1)
+            if urlsCount>0 && urlsCount % 3 == 0{
+                heightCount = CGFloat(urlsCount/3)
+            }
+            if urlsCount == 0{
+                heightCount = 0
+            }
+            collectionHeight = (UIScreen.screenWidth-20)/3 * heightCount
+        }
+        
+        
+        collectionView.snp.updateConstraints { (make) in
+            make.trailing.equalTo(content)
+            make.bottom.equalTo(actionBtn.snp.top).offset(-10)
+            make.leading.equalTo(content)
+            make.height.equalTo(collectionHeight)
+        }
+        
         if data.isRead == 1{
             self.actionBtn.isHidden = true
         }else{
@@ -225,8 +298,8 @@ class PMessageCenterCell: UITableViewCell ,UICollectionViewDelegate ,UICollectio
         }
     }
     
-    content.text = data.content! as String
-    let contentStr = data.content! as String
+    content.text = data.content as String
+    let contentStr = data.content as String
     content.text = contentStr.appending("\n我如果爱你，绝不像攀援的凌霄花，借你的高枝炫耀自己；我如果爱你，绝不学痴情的鸟儿，为绿荫重复单调的歌曲；也不止像泉源，常年送来清凉的慰藉；也不止像险峰，增加你的高度，衬托你的威仪。甚至日光，甚至春雨。");
     timeLabel.text = time
     

@@ -12,11 +12,12 @@ import Alamofire
 
 class ViewController: UIViewController {
 
+    @IBOutlet var imageShow: UIImageView!
     override func viewDidLoad() {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-                
+     self.imageShow.sd_setImage(with: URL(string: "http://static-wlx.oss-cn-beijing.aliyuncs.com/189c14c5-3fd3-45ad-8e20-e0d67d6d27f6.jpeg" as String ), placeholderImage: #imageLiteral(resourceName: "zweiSquare"))
         
         
     }
