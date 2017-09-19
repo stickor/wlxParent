@@ -16,12 +16,11 @@ class PTabBarVC: UITabBarController {
         addChildViewController(childController: PGradeVC(),title:"班级",imageName: "tabBar_class")
         addChildViewController(childController: PMessageCenterVC(),title: "消息",imageName: "tabBar_news")
         addChildViewController(childController: PMeVC(), title: "我", imageName: "tabBar_me")
-        
     }
     func addChildViewController(childController: UIViewController,title:String,imageName:String) {
         
         childController.title = title;
-        
+//        childController.tabBarItem.title = title
         childController.tabBarItem.image = UIImage(named: imageName)
         
         childController.tabBarItem.selectedImage = UIImage(named: imageName + "_h")
@@ -33,7 +32,7 @@ class PTabBarVC: UITabBarController {
         nav.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
         nav.addChildViewController(childController)
         
-        addChildViewController(nav)
+        self.addChildViewController(nav)
         
     }
 

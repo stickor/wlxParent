@@ -12,7 +12,7 @@ import SnapKit
 class PShowImageCell: UICollectionViewCell {
     
     
-    fileprivate lazy var bgImageView = UIImageView()
+    open lazy var bgImageView = UIImageView()
     open lazy var videoImageView = UIImageView()
     
     override func awakeFromNib() {

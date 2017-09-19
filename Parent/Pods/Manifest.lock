@@ -2,7 +2,6 @@ PODS:
   - Alamofire (4.0.1)
   - BFKit-Swift (2.4.1)
   - FSCalendar (2.7.8)
-  - ImageViewer (4.1.0)
   - JHB_HUDView (0.1.8)
   - Kingfisher (3.1.4)
   - MJRefresh (3.1.12)
@@ -11,6 +10,7 @@ PODS:
   - SDWebImage (4.1.0):
     - SDWebImage/Core (= 4.1.0)
   - SDWebImage/Core (4.1.0)
+  - SKPhotoBrowser (4.0.1)
   - SnapKit (3.0.2)
   - SwiftyJSON (3.1.4)
 
@@ -18,13 +18,13 @@ DEPENDENCIES:
   - Alamofire
   - BFKit-Swift
   - FSCalendar
-  - ImageViewer
   - JHB_HUDView
   - Kingfisher
   - MJRefresh
   - MobilePlayer
   - ObjectMapper
   - SDWebImage
+  - SKPhotoBrowser
   - SnapKit
   - SwiftyJSON
 
@@ -32,16 +32,16 @@ SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   BFKit-Swift: 7899c3c6ed641e202a5945185826aa4b6ff01099
   FSCalendar: 09369a2bf554ba71cd8e8cfb627e2df22a2c2af4
-  ImageViewer: 163e5832e0a09e31a3e3482cce6e5e9029356174
   JHB_HUDView: 5b95d9af443ff405bd95bc28731d2ab168d9f840
   Kingfisher: 6c67e3e57f2d81a9cfdfa25052cd86f33ceac9bb
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MobilePlayer: 069b13482499f14c25b6ce53f63a91e17975b073
   ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  SKPhotoBrowser: 3a7c6fc02aa1620ab17253a47a49fafda46536e8
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: b77bec2d75514eb8179711228a45fe6ff8657d5a
+PODFILE CHECKSUM: f4d1a44b140105dda954c908026e8f7deb75cf0a
 
 COCOAPODS: 1.2.1

@@ -11,7 +11,9 @@ import Alamofire
 import MJRefresh
 import SwiftyJSON
 import ObjectMapper
-
+import MobilePlayer
+import MobilePlayer
+import SKPhotoBrowser
 
 class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSource{
 
@@ -20,7 +22,9 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
     var messageData = NSDictionary()
     var jsonData = JSON.null
     var messageDataArray = NSMutableArray()
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "消息中心"
@@ -36,6 +40,7 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
         let header = MJRefreshNormalHeader()
         header.setRefreshingTarget(self, refreshingAction: #selector(self.headerRefresh(page:)))
         tableView.mj_header = header
+        self.getData()
 
         tableView.register(PMessageCenterCell.self, forCellReuseIdentifier: messageCell)
     }
@@ -52,7 +57,7 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
     func getData() {
         
         let request:RequestManager = RequestManager()
-        let dic = ["pageStart":"0","pageSize":"20"]
+        let dic = ["pageStart":"0","pageSize":"60"]
         let urlRequest =  request.request(type: "GET", urlString: "/client/family/messages", parameters: dic as NSDictionary)
         
         Alamofire.request(urlRequest).responseJSON { response in
@@ -65,13 +70,13 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
                     let dic = json["data"].rawValue
                     print((json["data"]["content"].rawValue as AnyObject).count)
                     self.messageData = dic as! NSDictionary
-                    self.tableView.reloadData()
-                    
+                   
                     //////
                     let  messageModels = MessageDataModel(dicToModel:dic as! [String : Any])
                     
                     self.messageDataArray.addObjects(from: messageModels.content_list)
                     print("1234567890")
+                     self.tableView.reloadData()
                     /////////////////
                     
 //                    let dataArray = json["data"]["content"].arrayValue
@@ -128,14 +133,33 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
         if !(cell.isEqual(nil)) {
             cell = PMessageCenterCell.init(style:UITableViewCellStyle.default, reuseIdentifier:messageCell)
         }
-
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        
         cell.updateWithData(data: self.messageDataArray[indexPath.row] as! PMessageCenterModel)
 
         cell.playVideoBlock = { str in
             print("111111111"+str)
+            
+            let playerVC = MobilePlayerViewController(contentURL: URL(string:str)!)
+            playerVC.title = "Vanilla Player - \(str)"
+            playerVC.activityItems = [URL(string:str)!]
+            self.navigationController?.navigationBar.isHidden = true
+            playerVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(playerVC, animated: true)
         }
         cell.showImageDetailBlock = { index,urls,imageViews in
             print("2222222"+"\(index)"+"\(urls)"+"\(imageViews)")
+            
+            SKPhotoBrowserOptions.enableZoomBlackArea    = true
+            SKPhotoBrowserOptions.enableSingleTapDismiss = true
+            SKPhotoBrowserOptions.bounceAnimation =  true
+            SKPhotoBrowserOptions.displayAction = false
+            let browser = SKPhotoBrowser(photos: self.createLocalPhotos(urls:urls))
+            browser.initializePageIndex(index)
+            browser.delegate = self as? SKPhotoBrowserDelegate
+            
+            self.navigationController?.present(browser, animated: true, completion: nil)
+            
         }
         cell.cellBlock = { str in
             print("test block---\(str)")
@@ -154,5 +178,14 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
         return 100;
     }
     
+    /////
+    func createLocalPhotos(urls:NSArray) -> [SKPhotoProtocol] {
+        return (0..<urls.count).map { (i: Int) -> SKPhotoProtocol in
+            let photo = SKPhoto.photoWithImageURL(urls[i] as! String)
+            photo.caption = "我是这张图的描述"
+            photo.contentMode = .scaleAspectFill
+            return photo
+        }
+    }
     
 }

@@ -27,6 +27,8 @@
 		EEB02F141F30A5BC003F2F4B /* PNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB02F131F30A5BC003F2F4B /* PNavController.swift */; };
 		EEB595A61F580267007CF579 /* PBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB595A51F580267007CF579 /* PBaseModel.swift */; };
 		EEB595A81F5802C3007CF579 /* PMessageCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB595A71F5802C3007CF579 /* PMessageCenterModel.swift */; };
+		EECCF52E1F6B686F003FBC9E /* MessageCenter.json in Resources */ = {isa = PBXBuildFile; fileRef = EECCF52D1F6B686F003FBC9E /* MessageCenter.json */; };
+		EECCF5321F6BC803003FBC9E /* textVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECCF5311F6BC803003FBC9E /* textVC.swift */; };
 		EED6EB331F5960EC0065B94B /* PMessageMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED6EB321F5960EC0065B94B /* PMessageMapModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		EEB02F131F30A5BC003F2F4B /* PNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNavController.swift; sourceTree = "<group>"; };
 		EEB595A51F580267007CF579 /* PBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBaseModel.swift; sourceTree = "<group>"; };
 		EEB595A71F5802C3007CF579 /* PMessageCenterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMessageCenterModel.swift; sourceTree = "<group>"; };
+		EECCF52D1F6B686F003FBC9E /* MessageCenter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MessageCenter.json; sourceTree = "<group>"; };
+		EECCF5311F6BC803003FBC9E /* textVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textVC.swift; sourceTree = "<group>"; };
 		EED6EB321F5960EC0065B94B /* PMessageMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMessageMapModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +124,7 @@
 				EEB02EE61F28A399003F2F4B /* ViewController.swift */,
 				EEB02F091F309662003F2F4B /* PTabBarVC.swift */,
 				EEB02F131F30A5BC003F2F4B /* PNavController.swift */,
+				EECCF5311F6BC803003FBC9E /* textVC.swift */,
 				EEB02EE81F28A399003F2F4B /* Main.storyboard */,
 				EEB02EEB1F28A399003F2F4B /* Assets.xcassets */,
 				EEB02EED1F28A399003F2F4B /* LaunchScreen.storyboard */,
@@ -169,6 +174,7 @@
 				EE2B11681F5D5147008CFD4C /* PShowImageCell.swift */,
 				EEB595A71F5802C3007CF579 /* PMessageCenterModel.swift */,
 				EED6EB321F5960EC0065B94B /* PMessageMapModel.swift */,
+				EECCF52D1F6B686F003FBC9E /* MessageCenter.json */,
 			);
 			path = MessageCenter;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 				EEB02F021F28A5C6003F2F4B /* Login.storyboard in Resources */,
 				EEB02EEF1F28A399003F2F4B /* LaunchScreen.storyboard in Resources */,
 				EEB02EEC1F28A399003F2F4B /* Assets.xcassets in Resources */,
+				EECCF52E1F6B686F003FBC9E /* MessageCenter.json in Resources */,
 				EEB02EEA1F28A399003F2F4B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +340,7 @@
 				EEB595A61F580267007CF579 /* PBaseModel.swift in Sources */,
 				EE9F02C11F31E80400DB8FFA /* PMessageCenterCell.swift in Sources */,
 				EEB02EE51F28A399003F2F4B /* AppDelegate.swift in Sources */,
+				EECCF5321F6BC803003FBC9E /* textVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
