@@ -22,6 +22,8 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
     var messageData = NSDictionary()
     var jsonData = JSON.null
     var messageDataArray = NSMutableArray()
+    var pageIndex = NSInteger()
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
     }
@@ -29,7 +31,7 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
         super.viewDidLoad()
         self.title = "消息中心"
         self.tabBarItem.title = "消息"
-        
+        pageIndex = 0
         tableView.frame = CGRect(x:0,y:0,width:self.view.frame.size.width,height:self.view.frame.size.height)
         tableView.delegate = self
         tableView.dataSource = self
@@ -45,10 +47,11 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
         tableView.register(PMessageCenterCell.self, forCellReuseIdentifier: messageCell)
     }
     func headerRefresh(page:NSInteger) {
-        tableView.reloadData()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.tableView.mj_header.endRefreshing()
-        }
+//        tableView.reloadData()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//
+//        }
+        self.pageIndex = 0
         self.getData()
         
         
@@ -57,16 +60,19 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
     func getData() {
         
         let request:RequestManager = RequestManager()
-        let dic = ["pageStart":"0","pageSize":"60"]
+        
+        let dic = ["pageStart":String(self.pageIndex),"pageSize":"10"]
         let urlRequest =  request.request(type: "GET", urlString: "/client/family/messages", parameters: dic as NSDictionary)
         
         Alamofire.request(urlRequest).responseJSON { response in
-            
+            self.tableView.mj_header.endRefreshing()
+
             if response.result.isSuccess{
                 let json = JSON(data: response.data!)
                 self.jsonData = JSON(data: response.data!)
                 print("请求返回的code==:\(json["code"])")
                 if json["code"].intValue == 0 {
+                    self.pageIndex = self.pageIndex+1
                     let dic = json["data"].rawValue
                     print((json["data"]["content"].rawValue as AnyObject).count)
                     self.messageData = dic as! NSDictionary
@@ -170,7 +176,9 @@ class PMessageCenterVC: PViewController,UITableViewDelegate,UITableViewDataSourc
             print("test block---\(str)")
             return str
         }
-        
+        if indexPath.row+1 == self.messageDataArray.count {
+            self.getData()
+        }
         return cell;
     }
     

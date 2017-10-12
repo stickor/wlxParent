@@ -25,14 +25,14 @@ class RequestManager: NSObject {
         }
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-        urlRequest.setValue("v3", forHTTPHeaderField: "interface_version")
+        urlRequest.setValue("v4", forHTTPHeaderField: "interface_version")
         urlRequest.setValue("iphone", forHTTPHeaderField: "system")
         urlRequest.setValue("ios10", forHTTPHeaderField: "version")
         urlRequest.setValue("123456789", forHTTPHeaderField: "guid")
-        urlRequest.setValue("1.5.0", forHTTPHeaderField: "app_version")
+        urlRequest.setValue("1.6.0", forHTTPHeaderField: "app_version")
         urlRequest.setValue("App Store", forHTTPHeaderField: "channel")
         urlRequest.setValue("20170101", forHTTPHeaderField: "build_version")
-        urlRequest.setValue("ad060be1-6c62-4159-bef2-347f19592ef4", forHTTPHeaderField: "token")
+        urlRequest.setValue("a11eac39-8ad4-4f0a-9bd6-e23a346c1da4", forHTTPHeaderField: "token")
         
         return urlRequest;
     }
